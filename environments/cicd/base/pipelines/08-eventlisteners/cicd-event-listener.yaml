@@ -28,21 +28,6 @@ spec:
     - cel:
         filter: (header.match('X-GitHub-Event', 'pull_request') && body.action ==
           'opened' || body.action == 'synchronize') && body.pull_request.head.repo.full_name
-          == 'DhanashriPalodkar/Bus'
-    - github:
-        secretRef:
-          namespace: cicd
-          secretKey: webhook-secret-key
-          secretName: github-webhook-secret-bus
-    name: app-ci-build-from-pr-bus
-    template:
-      name: app-ci-template
-  - bindings:
-    - name: github-pr-binding
-    interceptors:
-    - cel:
-        filter: (header.match('X-GitHub-Event', 'pull_request') && body.action ==
-          'opened' || body.action == 'synchronize') && body.pull_request.head.repo.full_name
           == 'DhanashriPalodkar/gitops'
     - github:
         secretRef:
