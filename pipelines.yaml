@@ -22,3 +22,4 @@ environments:
 - argo: true
   name: argocd
 gitops_url: https://github.com/DhanashriPalodkar/gitops.git
+
