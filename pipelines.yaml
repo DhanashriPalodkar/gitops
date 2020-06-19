@@ -29,4 +29,3 @@ environments:
 - name: stage
 gitops_url: https://github.com/DhanashriPalodkar/gitops.git
 
-
