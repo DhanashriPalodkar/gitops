@@ -6,11 +6,10 @@ metadata:
   namespace: cicd
 spec:
   params:
-  - default: master
-    description: The git revision
-    name: gitref
   - description: The git repository url
     name: gitrepositoryurl
+  - description: The specific commit SHA.
+    name: gitsha
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
@@ -25,7 +24,7 @@ spec:
         resourceSpec:
           params:
           - name: revision
-            value: $(params.gitref)
+            value: $(params.gitsha)
           - name: url
             value: $(params.gitrepositoryurl)
           type: git
